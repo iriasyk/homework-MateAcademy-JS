@@ -33,35 +33,50 @@ console.log(2/3 + 1 + 1/3 == 2); //false
 /*В дробах 1/3, 2/3 буде нескінченна частка в системі подвійних чисел.*/
 
 // 3 task
-var r = 6 && 0 && 7; // 0
-console.log(r);
-var r = -9 && -8; // -8
-console.log(r);
-var r = 6 && 0 && 7; // 0
-console.log(r);
-var r = "string" && 0; // 0
-console.log(r);
-var r = [] && {} && 7; // 7
-console.log(r);
-var r = [] || 7; // []
-console.log(r);
-var r = {} || 0; // {}
-console.log(r);
-var r = false || true; // true
-console.log(r);
-var r = "2" > "3"; // false
-console.log(r);
-var r = "ab" <= "fg"; // true
-console.log(r);
-var r = "2k" <= "8l"; //true
-console.log(r);
-var r = "2" != 2; // false
-console.log(r);
-var r = "2" !== 2; // true
-console.log(r);
-var r = ++2 + 2; // 5
-console.log(r);
-var r = ++2 + 2--; // 5
-console.log(r);
-var r = 1++ - 2--; // -1
-console.log(r);
+var r = 6 && 0 && 7;
+console.log(r); //0
+
+var r = -9 && -8;
+console.log(r); //-8
+
+var r = 6 && 0 && 7;
+console.log(r); //0
+
+var r = "string" && 0;
+console.log(r); //0
+
+var r = [] && {} && 7;
+console.log(r); //7
+
+var r = [] || 7;
+console.log(r); // []
+
+var r = {} || 0;
+console.log(r); // {}
+
+var r = false || true;
+console.log(r); //true
+
+var r = "2" > "3";
+console.log(r); //false
+
+var r = "ab" <= "fg";
+console.log(r); //true
+
+var r = "2k" <= "8l";
+console.log(r); //true
+
+var r = "2" != 2;
+console.log(r); //false
+
+var r = "2" !== 2;
+console.log(r); //true
+
+var r = ++2 + 2;
+console.log(r); //5
+
+var r = ++2 + 2--;
+console.log(r); //5
+
+var r = 1++ - 2--;
+console.log(r); //-1
