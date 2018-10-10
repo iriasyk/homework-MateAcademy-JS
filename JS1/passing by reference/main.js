@@ -32,7 +32,7 @@ console.log(str, object1.str.number); // {name: "Kolya", number: 67}, 67
 
 // 5 task
 var object1 = {obj: {number: 0}};
-var object2 = {str: "Kolya"}; 
+var object2 = {str: "Kolya"};
 
 object2.str.number = object2.str.number;
 object2.str.number++;
