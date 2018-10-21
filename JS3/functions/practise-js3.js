@@ -102,16 +102,15 @@ console.log(random());
 //Task 8
 //Реализуйте функцию union, которая объединит уникальные элементы всех массивов, переданных ей параметром.
 //Пример: union([1, 2, 3], [101, 2, 1, 10], [2, 1]) вернёт [1, 2, 3, 101, 10].
-var arr1 = [1, 2, 3];
-var arr2 = [101, 2, 1, 10];
-var arr3 = [2,1];
-
-function union(){
-    var arr4 = [];
-    arr4 = [...new Set([...arr1 ,...arr2 ,...arr3])];
-    console.log(arr4);
+function union(...Arrs) {
+    let newArr = [];
+    for (let i in Arrs) {
+        newArr = newArr.concat(Arrs[i]);
+    }
+    let uniqueArr = Array.from(new Set(newArr));
+    console.log(uniqueArr);
 }
-union(arr1,arr2,arr3);
+union([1, 2, 3, 4], [3, 3, 1], [5, 8, 7, 2, 9, 3]);
 
 //Task 9
 //Реализуйте функцию flatten, которая в случае,
