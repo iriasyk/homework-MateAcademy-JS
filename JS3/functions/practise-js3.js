@@ -119,7 +119,6 @@ union(arr1,arr2,arr3);
 // Пример: flatten([1, [2], [3, [[[4]]]]]) вернёт [1, 2, 3, 4].
 
 function union(...arrs) {
-<<<<<<< HEAD
     let newArr = [];
     for (let i in arrs) {
         newArr = newArr.concat(arrs[i]);
