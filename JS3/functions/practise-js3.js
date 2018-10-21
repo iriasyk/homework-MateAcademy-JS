@@ -72,12 +72,12 @@ function factrl(counter) {
     var factorial = 1;
     document.write("Факториал числа: " + counter + "! = ");
     while(counter > 0){
-    if (counter == 0){
-        factorial = 1;
-        break;
-    }
-    factorial *= counter;
-    counter = counter - 1;
+        if (counter == 0){
+            factorial = 1;
+            break;
+        }
+        factorial *= counter;
+        counter = counter - 1;
     }
     console.timeEnd("start");
     document.write(factorial);
@@ -119,12 +119,21 @@ union(arr1,arr2,arr3);
 // Пример: flatten([1, [2], [3, [[[4]]]]]) вернёт [1, 2, 3, 4].
 
 function union(...arrs) {
+<<<<<<< HEAD
+    let newArr = [];
+    for (let i in arrs) {
+        newArr = newArr.concat(arrs[i]);
+    }
+    let uniqueArr = Array.from(new Set(newArr));
+    console.log(uniqueArr);
+=======
         let newArr = [];
         for (let i in arrs) {
             newArr = newArr.concat(arrs[i]);
         }
       let uniqueArr = Array.from(new Set(newArr));
       console.log(uniqueArr);
+>>>>>>> 4ee231dfe2b69a7f252c8ebe0bc2c37c403a2913
 }
 union([1, 2, 3, 4], [1, 2, 3], [3, 4, 5, 6, 7, 15]);
 
