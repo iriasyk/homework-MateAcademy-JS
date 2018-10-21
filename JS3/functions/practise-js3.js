@@ -36,37 +36,32 @@ function a(){
 var i = 0;
 
 for (; i< 10; i ++) {
-    console.log(i) //undefined
+    console.log(i) //1 2 3 4 5 6 7 8 9
 }
 
 //Task 5 (Напишите функцию подсчета факториала числа, но каждый раз возвращая факториал умножайте его на 2 если число четное.)
 
-var counter = prompt("Введите число:");
-var factorial = 1;
-document.write("Факториал числа: " + counter + "! = ");
-
-do {
-    if(counter == 0) {
-        factorial = 1;
-        break;
+function pow(value) {
+    let counter = value;
+    let result = 1;
+    if (value === 0) {
+        console.log(result)
     }
-    factorial *= counter;
-    counter = counter - 1;
-}
-while(counter > 0);
-document.write(factorial);
-
-//or
-
-while(counter > 0){
-    if (counter == 0){
-        factorial = 1;
-        break;
+    while(value > 0) {
+        if (counter === 0){
+            break;
+        }
+        result *= counter;
+        counter = counter - 1;
     }
-    factorial *= counter;
-    counter = counter - 1;
+    if (value % 2 === 0) {
+        console.log(result*2)
+    }
+    else {
+        console.log(result)
+    }
 }
-document.write(factorial);
+pow(5);
 
 
 //Task 6
@@ -123,18 +118,15 @@ union(arr1,arr2,arr3);
 // если массив обладает уровнями вложенности, приведёт его к элементарному виду (вложенность может быть любой глубины).
 // Пример: flatten([1, [2], [3, [[[4]]]]]) вернёт [1, 2, 3, 4].
 
-function flatten(arr){
-    var resultArr = [];
-    for(var i = 0; i < arr.length; i++) {
-        if(Array.isArray(arr[i])) {
-            resultArr = resultArr.concat(flatten(arr[i]));
-        } else {
-            resultArr.push(arr[i]);
+function union(...arrs) {
+        let newArr = [];
+        for (let i in arrs) {
+            newArr = newArr.concat(arrs[i]);
         }
-    }
-    return resultArr;
+      let uniqueArr = Array.from(new Set(newArr));
+      console.log(uniqueArr);
 }
-console.log(flatten([1,[3,7], [3, [4]]]));
+union([1, 2, 3, 4], [1, 2, 3], [3, 4, 5, 6, 7, 15]);
 
 //Task 10
 //Реализуйте функцию unique, которая будет удалять дубли из массива.
