@@ -49,6 +49,7 @@
 //     }
 // };
 // console.log(object.getDouble(3));
+// это нужно было делать через objectDefineProperty
 
 // Task 5
 // Напишите код, который отсортирует массив объектов people по полю age.
@@ -67,3 +68,5 @@ function compare(a,b) {
 }
 
 console.log(objs.sort(compare));
+
+// 6 задание?
