@@ -118,22 +118,18 @@ union(arr1,arr2,arr3);
 // если массив обладает уровнями вложенности, приведёт его к элементарному виду (вложенность может быть любой глубины).
 // Пример: flatten([1, [2], [3, [[[4]]]]]) вернёт [1, 2, 3, 4].
 
-function union(...arrs) {
-    let newArr = [];
-    for (let i in arrs) {
-        newArr = newArr.concat(arrs[i]);
-    }
-    let uniqueArr = Array.from(new Set(newArr));
-    console.log(uniqueArr);
-
-        let newArr = [];
-        for (let i in arrs) {
-            newArr = newArr.concat(arrs[i]);
+function flatten(Arrs) {
+    let result = [];
+    if (Array.isArray(Arrs)) {
+        for (var arr in Arrs) {
+            result = result.concat(flatten(manyAr[arr]));
         }
-      let uniqueArr = Array.from(new Set(newArr));
-      console.log(uniqueArr);
+    } else {
+        result.push(Arrs);
+    }
+    return(result);
 }
-union([1, 2, 3, 4], [1, 2, 3], [3, 4, 5, 6, 7, 15]);
+console.log(flatten([1,[2],[3,[[[4]]]]]));
 
 //Task 10
 //Реализуйте функцию unique, которая будет удалять дубли из массива.
