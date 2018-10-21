@@ -121,7 +121,7 @@ function flatten(Arrs) {
     let result = [];
     if (Array.isArray(Arrs)) {
         for (var arr in Arrs) {
-            result = result.concat(flatten(manyAr[arr]));
+            result = result.concat(flatten(Arr[arr]));
         }
     } else {
         result.push(Arrs);
