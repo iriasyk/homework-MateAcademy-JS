@@ -59,8 +59,8 @@ for(var i = 70; i > 10; i--) {
 }
 
 //Task 7
-for(var i = 79; i > 12; i--) {
-    if(i % 2 == 1) {
+for(var i = 78; i > 12; i--) {
+    if(i % 2 == 0 && i % 3 == 0) {
         console.log(i);
     }
 }
