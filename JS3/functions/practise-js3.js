@@ -126,14 +126,13 @@ function union(...arrs) {
     }
     let uniqueArr = Array.from(new Set(newArr));
     console.log(uniqueArr);
-=======
+
         let newArr = [];
         for (let i in arrs) {
             newArr = newArr.concat(arrs[i]);
         }
       let uniqueArr = Array.from(new Set(newArr));
       console.log(uniqueArr);
->>>>>>> 4ee231dfe2b69a7f252c8ebe0bc2c37c403a2913
 }
 union([1, 2, 3, 4], [1, 2, 3], [3, 4, 5, 6, 7, 15]);
 
