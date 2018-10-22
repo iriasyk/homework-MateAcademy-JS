@@ -1,7 +1,7 @@
 //Task 1
 // Напишите функцию getLength, которая будет считать длину любого заданного массива
 function getLength() {
-    var arr = [1, 2 , 5, 8];
+    let arr = [1, 2 , 5, 8];
     document.write("Длинна массива: " + arr.length + "<br />");
     document.write("<hr />");
 }
@@ -18,21 +18,43 @@ getArgsLength(1,2, 3, 4, 10, 'abc');
 // Task3
 // Напишите функцию «removeEmptyElements», которая удалит все пустые элементы в массиве,
 // заданные ей, а также проверит внутри нее, что аргумент является массивом
-//...
+let array = ["abc", null, "bca", , 5, "gda", null];
+function removeEmptyElements(Arrs){
+    for (let i in Arrs) {
+        if (Array.isArray(Arrs[i])){
+            Arrs[i] = removeEmptyElements(Arrs[i]);
+        } else {
+            var cleanArray = Arrs.filter(element => element !== null)}}
+    return cleanArray;
+}
+document.write("Результат(c delete елементами): " + (removeEmptyElements(array)));
+document.write("<hr />");
 
 // Task 4
 // Напишите функцию «sortReverse», которая будет сортировать элементы массива в обратном порядке
 function reverseSort(arr) {
-    arr = ["abc", "bca", 5, "gda"]
-    // return arr.reverse();
-    document.write("Обратный порядок: " + arr.reverse() + "<br/>")
+    arr = ["abc", "bca", 5, "gda"];
+    document.write("Обратный порядок: " + arr.reverse() + "<br/>");
     document.write("<hr />");
 }
 reverseSort();
 // Task 5
 // Создайте функцию, которая получит дату в качестве аргумента (также проверьте, является ли она датой),
 // и верните объект: {день: ваша_значение, месяц: ваша_значение, год: ваша_значение}
-//...
+let date = new Date();
+// console.log(date);
+let result = function dateObject(date) {
+    let newDateObj;
+    if(date instanceof Date && !isNaN(date.valueOf())) {
+        return newDateObj = {
+            day: date.getDate(),
+            month: date.getMonth() + 1,
+            year: date.getFullYear()
+        }
+    }
+    return newDateObj;
+}
+console.log(result(date));
 
 // Task 6
 // Напишите функцию,
@@ -61,4 +83,4 @@ let request = function() {
         return;
     }
 }
-request();
+// request();
