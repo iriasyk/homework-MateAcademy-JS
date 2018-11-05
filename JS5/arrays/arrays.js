@@ -139,14 +139,133 @@ function addPerson(){
 //Task 10
 // Дан массив с числами. Подсчитайте количество цифр 3 в данном массиве.
 // Пример: [13, 35, 3, 443] - в массиве 4 цифры 3.
-var arrNew10 = [13, 35, 3, 443];
 function find(arr, n) {
     let newArr = arr.join('').split('').filter(function(number) {
       return number == n;
     });
       return newArr.length;
 }
-console.log("(Task 10) Result ", find(arrNew10,3), "numbers");
+console.log("(Task 10) Result ", find([13, 35, 3, 443],3), "numbers");
 
 // Task 11
 // Дан массив ['1', '2', '3', '4', '5', '6']. Сделайте из него строку '16-25-34'. Массив, конечно же, может быть любым.
+function ChangeArr(arr){
+    let middle = Math.floor(arr.length/2);
+    let odd = (arr.length%2 !== 0) ? true : false;
+    let str = "";
+    for (let i = 0; i < middle; i++) {
+        if(odd && i+1 == middle){
+            str += arr[i] + arr[middle] + arr[arr.length-i-1];
+        }
+        else{
+            str += arr[i] + arr[arr.length-i-1];
+        }
+        if(i + 1 !== middle){
+            str += "-";
+        }
+    }
+    return str;
+}
+console.log("(Task 11) Result change arr: ", ChangeArr(['1', '2', '3', '4', '5', '6']));
+
+// Task 12
+// Даны два массива.
+// Создайте новый массив, заполненный суммами соответствующих элементов, то есть [1+4, 2+5, 3+6] = [5, 7, 9].
+// Скрипт должен работать для любых массивов, даже если их длина не одинакова (подумайте, что делать в этом случае).
+function SumOfArrays(arr1, arr2) {
+  let newArr = [];
+  let arrLength;
+  if (arr1.length < arr2.length) {
+      arrLength = arr2.length;
+  }
+  else {
+      arrLength = arr1.length;
+  }
+  for (let i = 0; i <= arrLength; i++) {
+    if ((arr1[i] != undefined) && ( arr2[i] != undefined)) {
+      newArr.push(arr1[i] + arr2[i]);
+    }
+    else if ((arr2[i] === undefined) && (arr1[i] != undefined)) {
+      newArr.push(arr1[i] + '');
+    }
+    else if (arr1[i] === undefined && arr2[i] != undefined) {
+      newArr.push(arr2[i] + '');
+    }
+  }
+  return newArr;
+}
+console.log("(Task 12) Result: ", SumOfArrays([1,2,3], [4,5,6]));
+
+// Task 13
+// Дан массив. Напишите функцию, которая будет удалять элемент из массива по его тексту.
+// Пример: arr = [1,2,3,4,3,3]. Удалим все элементы с содержимым 3: func(arr, 3).
+function arrayRemoveItems(arr, n) {
+  return arr.filter(function (item) {
+    return item !== n;
+  });
+}
+console.log("(Task 13) Result remove items: ", arrayRemoveItems([1,2,3,4,3,3], 3));
+
+// Task 14
+// Реализуйте функцию intersection, вернёт массив из элементов, встречающихся в каждом из переданных массивов.
+// Пример: intersection([1, 2, 3], [101, 2, 1, 10], [2, 1]) вернёт [1, 2].
+function intersection(arr1,arr2,arr3) {
+  let result = [];
+  for (let i = 0; i <= arr1.length; i++) {
+    if ((arr2.indexOf(arr1[i]) > -1) && (arr3.indexOf(arr1[i]) > -1)) {
+      result.push(arr1[i]);
+    }
+  }
+  return result;
+}
+console.log("(Task 14) Result: ", intersection([1, 2, 3],[101, 2, 1, 10],[2, 1]));
+
+// Task 15
+// Дан массив с числами, к примеру [2, 3, 1, 4].
+// Сделайте из него массив [2, 2, 3, 3, 3, 1, 4, 4, 4, 4]. В массиве могут быть только целые положительные числа.
+function  changeArr(arr){
+    let newArr = [];
+    let j = 0;
+    for (let i = 0; i < arr.length; i++) {
+        do{
+            newArr.push(arr[i]);
+            j++;
+        }while(j < arr[i]);
+        j = 0;
+    }
+    return newArr;
+}
+console.log("(Task 15) Result: ", changeArr([2, 3, 1, 4]));
+
+// Task 16
+// Реализуйте функцию, которая будет дополнять массив заданными элементами до заданного размера.
+// Пример: [1,2,3] дополним нулями до размера 6 - [1,2,3,0,0,0].
+function CompleteArr(arr, newIndex, n) {
+  for (let i = 0; i < n; i++) {
+    if (arr.length < n) {
+      arr.push(newIndex);
+    }
+  }
+  return arr;
+}
+console.log("(Task 16) Result: ", CompleteArr([1,2,3,4], 0, 8));
+
+// Task 17
+// Дан массив с числами. Не используя цикл, выведите:
+// 1. Три самых маленьких числа в массиве (числа должны быть разные, дубли должны быть проигнорированы).
+// 2. Первые 3 отрицательных числа в массиве (по порядку следования).
+function writeWithoutLoop(arr){
+    let newArr = arr.slice(0);
+    let min1 = Math.min(...arr);
+    arr.splice(arr.indexOf(min1), 1);
+    let min2 = Math.min(...arr);
+    arr.splice(arr.indexOf(min2), 1);
+    let min3 = Math.min(...arr);
+    arr.splice(arr.indexOf(min3), 1);
+    console.log("(Task 17) Три самых маленьких числа в массиве: " + min1 + ", " + min2 + ", " + min3);
+    newArr = newArr.filter(function(index){
+        return index < 0;
+    });
+    console.log("(Task 17) Первые 3 отрицательных числа в массиве: " + newArr.slice(0,3));
+}
+writeWithoutLoop([1, 2, -3, 4, 5, -6, 7, 8, -9, -10, 11]);
