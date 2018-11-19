@@ -120,14 +120,14 @@ function Hamster() {
 
     this.food = [ ]; // пустой "живот"
 
-    this.found = function(something) {
+    Hamster.prototype.found = function(something) {
         this.food.push(something);
     };
 }
 
 // Создаём двух хомяков и кормим первого
-speedy = new Hamster();
-lazy = new Hamster();
+let speedy = new Hamster();
+let lazy = new Hamster();
 
 speedy.found("яблоко");
 speedy.found("орех");
@@ -141,7 +141,8 @@ console.log("(Task 6) Второй хомяк сьел: ", lazy.food.length, "п
 // добавьте несколько методов и свойств которые свойственны именно человеку-программисту!
 // Создайте неcколько экземпляром класса Programmer.
 class Person {
-    constructor () {
+    constructor (name) {
+        this.name = name;
         this.legs = 2;
         this.arms = 2;
         this.canWalk = true;
@@ -149,19 +150,19 @@ class Person {
 }
 
 class Programmer extends Person {
-    constructor() {
-        super(); //super используется для вызова функций, принадлежащих родителю объекта.
+    constructor(name) {
+        super(name); //super используется для вызова функций, принадлежащих родителю объекта.
         this.knowHTML = true;
         this.knowCSS = true;
         this.knowJS = true;
     }
 }
 
-var test1 = new Programmer("Vasia");
-var test2 = new Programmer("Petia");
+let vasia = new Programmer("Vasia312321");
+let petia = new Programmer("Petia");
 
-console.log("(Task 7) New programmer Vasia: ", test1);
-console.log("(Task 7) New programmer Petia: ", test2);
+console.log("(Task 7) New programmer Vasia: ", vasia.arms);
+console.log("(Task 7) New programmer Petia: ", petia.canWalk);
 
 // Task 8
 // Напишите функцию-конструктор Adder(startingValue). Объекты, которые она создает,
@@ -175,11 +176,11 @@ console.log("(Task 7) New programmer Petia: ", test2);
 var result = 0;
 function Adder(startingValue) {
     this.value = startingValue;
-    this.addInput = function() {
+    Adder.prototype.addInput = function() {
         var addValue = prompt("(Task 8) Введите value: ");
         return result = +addValue + this.value;
     };
-    this.showValue = function() {
+    Adder.prototype.showValue = function() {
         return this.value;
     };
 }
